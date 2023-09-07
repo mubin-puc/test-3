@@ -1,0 +1,33 @@
+name: Copy File to Another Branch
+
+on:
+  push:
+    branches:
+      - json # Replace with the source branch you want to copy from
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Source Branch
+      uses: actions/checkout@v2
+      with:
+        ref: json  # Replace with the source branch name
+        path: ./file.json
+
+    - name: Clone Destination Repository
+      run: |
+        git config --global user.name "Mubin Girach"
+        git config --global user.email "girachmubin@gmail.com"
+        git clone https://github.com/th3gentleman-MubinGirach/test-1
+        cd test-1
+      shell: bash
+
+    - name: Copy File to Destination Branch
+      run: |
+        cp ../file.json .
+        git add file.json
+        git commit -m "Copy file from source-branch to destination-branch"
+        git push --set-upstream origin main
+      shell: bash

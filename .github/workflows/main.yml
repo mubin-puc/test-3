@@ -13,6 +13,6 @@ jobs:
       - name: Trigger Repo2 Workflow
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: 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  # Add the PAT for Repo2
+          token: ${{ secrets.REPOTOKEN}}  # Add the PAT for Repo2
           repository: mubin-puc/devops-test  # Replace with the actual Repo2 details
           event-type: repo2-event-name  # Customize this event name

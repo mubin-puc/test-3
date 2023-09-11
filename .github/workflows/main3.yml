@@ -20,7 +20,7 @@ jobs:
           TARGET_REPO="mubin-puc/app-modernization"          
           # Define your GitHub Personal Access Token (PAT)
           # Make sure to store this token securely as a secret in your repository
-          PAT_TOKEN=${{ secrets.REPOTOKEN }}
+          PAT_TOKEN=${{ secrets.BALA }}
           
           # Create a JSON payload for the repository_dispatch event
           PAYLOAD="{\"event_type\": \"workflow_dispatch\", \"client_payload\": { \"repository\": \"$TARGET_REPO\" }}"

@@ -17,7 +17,7 @@ jobs:
       - name: Trigger Workflow in Another Repository
         run: |
           # Define the repository you want to trigger
-          TARGET_REPO="mubin-puc/devops-test"          
+          TARGET_REPO="mubin-puc/app-modernization"          
           # Define your GitHub Personal Access Token (PAT)
           # Make sure to store this token securely as a secret in your repository
           PAT_TOKEN=${{ secrets.REPOTOKEN }}

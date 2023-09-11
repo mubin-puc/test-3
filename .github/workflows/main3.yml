@@ -1,0 +1,34 @@
+name: Trigger Another Repository Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: 'Repository to trigger the workflow'
+        required: true
+
+jobs:
+  trigger-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Trigger Workflow in Another Repository
+        run: |
+          # Define the repository you want to trigger
+          TARGET_REPO="mubin-puc/devops-test"          
+          # Define your GitHub Personal Access Token (PAT)
+          # Make sure to store this token securely as a secret in your repository
+          PAT_TOKEN=${{ secrets.REPOTOKEN }}
+          
+          # Create a JSON payload for the repository_dispatch event
+          PAYLOAD="{\"event_type\": \"workflow_dispatch\", \"client_payload\": { \"repository\": \"$TARGET_REPO\" }}"
+          
+          # Trigger the workflow in the other repository
+          curl -X POST \
+            -H "Accept: application/vnd.github.everest-preview+json" \
+            -H "Authorization: token $PAT_TOKEN" \
+            -d "$PAYLOAD" \
+            "https://api.github.com/repos/$TARGET_REPO/dispatches"
+

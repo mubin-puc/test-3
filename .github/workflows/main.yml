@@ -14,5 +14,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{secrets.REPOTOKEN}}  # Add the PAT for Repo2
-          repository: mubin-puc/devops-test  # Replace with the actual Repo2 details
+          repository: https://github.com/mubin-puc/devops-test.git  # Replace with the actual Repo2 details
           event-type: repo2-event-name  # Customize this event name

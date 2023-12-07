@@ -14,7 +14,7 @@
 | uaminame | uaminame | Name of User assigned managed identity |
 | uamiresourcegroup | hci-demo | Resource group of User assigned managed identity |
 | funcappname | kcns-arc-fapp | Name of Function App |
-| agid | /subscriptions/xxxxxxxxxxxxxxxxxx/resourceGroups/\
-xxxxxxxxxxxxxx/providers/microsoft.insights/\
-actionGroups/metric-alert-ag | ID of metric alert action group |
+| agid | /subscriptions/xxxxxxxxxxxxxxxxxx/resourceGroups/\  | ID of metric alert action group |
+         xxxxxxxxxxxxxx/providers/microsoft.insights/\
+         actionGroups/metric-alert-ag 
 | tags | {} | Tag values |
